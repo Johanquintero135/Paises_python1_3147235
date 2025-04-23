@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Actividad</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-family: Bold;
+            border: 1px solid #000;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: blue; /* Fondo del encabezado azul */
+            color: white;
+        }
+
+        .text-danger {
+            color: red; /* Nombre del país en rojo */
+        }
+
+        .capital {
+            background-color: green; /* Columna de Capital en verde */
+            color: white;
+        }
+
+        body {
+            margin: 30px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Listado de países </h1>
+    <h3> Hola, Mundo {{ usuario }} </h3>
+    <table>
+        <thead>   
+            <tr>
+                <th class="text-danger">Nombre Del País</th>
+                <th class="capital">Capital</th> 
+                <th>Moneda</th>
+                <th>Población</th>
+                <th>Superficie</th>
+                <th>Ciudades Principales</th>
+            </tr>   
+        </thead>
+
+        <tbody>      
+        {% for pais in paises %}
+            <tr>
+                <td class="text-danger">
+                    {{ pais.nombre }}
+                </td>
+
+                <td class="capital">
+                    {{ pais.capital }}
+                </td>
+
+                <td>
+                    {{ pais.moneda }}
+                </td>
+                    
+                <td>
+                    {{ pais.poblacion }}
+                </td>
+
+                <td>
+                    {{ pais.superficie }}
+                </td>
+
+                <td>
+                    {% for ciudad in pais.ciudades %}
+                        {{ ciudad }}<br>
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
